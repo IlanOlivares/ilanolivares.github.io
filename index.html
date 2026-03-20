@@ -65,6 +65,9 @@
       margin: 0 auto;
     }
 
+    /* --------------------------
+       HEADER
+    --------------------------- */
     .site-header {
       background: var(--dark);
       color: #fff;
@@ -112,6 +115,14 @@
       padding: 18px 0 14px;
     }
 
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-height: 56px;
+    }
+
     .logo-wrap {
       display: flex;
       justify-content: center;
@@ -122,6 +133,41 @@
       width: min(340px, 72vw);
       height: auto;
       object-fit: contain;
+    }
+
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 4px auto;
+      background: #fff;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-toggle.is-active span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.is-active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.is-active span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
     }
 
     .main-nav-wrap {
@@ -171,6 +217,47 @@
       background: var(--accent);
     }
 
+    .mobile-menu {
+      display: none;
+      background: #111111;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .mobile-menu.is-open {
+      display: block;
+    }
+
+    .mobile-menu-inner {
+      padding: 10px 0 16px;
+    }
+
+    .mobile-nav {
+      display: grid;
+      gap: 0;
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(255,255,255,.92);
+    }
+
+    .mobile-nav-link:last-child {
+      border-bottom: 0;
+    }
+
+    .mobile-nav-link.active {
+      color: #fff;
+    }
+
+    /* --------------------------
+       HERO
+    --------------------------- */
     .hero {
       padding: 34px 0 26px;
       background: linear-gradient(to bottom, #111111 0%, #111111 62%, var(--bg) 62%, var(--bg) 100%);
@@ -338,6 +425,9 @@
       color: var(--muted);
     }
 
+    /* --------------------------
+       SECTIONS
+    --------------------------- */
     .section {
       padding: 34px 0;
     }
@@ -426,6 +516,9 @@
       font-size: 15px;
     }
 
+    /* --------------------------
+       VIDEO AD
+    --------------------------- */
     .video-ad-section {
       padding: 10px 0 18px;
     }
@@ -496,6 +589,9 @@
       text-transform: uppercase;
     }
 
+    /* --------------------------
+       LATEST STORIES
+    --------------------------- */
     .latest-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
@@ -581,6 +677,9 @@
       color: #5a5148;
     }
 
+    /* --------------------------
+       LOWER AD BAND
+    --------------------------- */
     .ad-band {
       margin: 16px 0 14px;
       background: #181818;
@@ -632,6 +731,9 @@
         url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
     }
 
+    /* --------------------------
+       CATEGORY BLOCKS
+    --------------------------- */
     .split-section {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -688,6 +790,9 @@
       font-size: 14px;
     }
 
+    /* --------------------------
+       NEWSLETTER
+    --------------------------- */
     .newsletter {
       padding: 54px 0 64px;
     }
@@ -735,6 +840,9 @@
       font-size: 15px;
     }
 
+    /* --------------------------
+       FOOTER
+    --------------------------- */
     .site-footer {
       background: #0c0c0c;
       color: rgba(255,255,255,.78);
@@ -775,6 +883,9 @@
       padding-top: 14px;
     }
 
+    /* --------------------------
+       RESPONSIVE
+    --------------------------- */
     @media (max-width: 1180px) {
       .hero-grid,
       .latest-layout,
@@ -816,20 +927,16 @@
         justify-content: center;
       }
 
-      .main-nav {
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding: 12px 0;
-        scrollbar-width: thin;
+      .desktop-nav {
+        display: none;
       }
 
-      .main-nav::-webkit-scrollbar {
-        height: 6px;
+      .menu-toggle {
+        display: block;
       }
 
-      .main-nav::-webkit-scrollbar-thumb {
-        background: rgba(255,255,255,.18);
+      .logo-bar {
+        justify-content: center;
       }
 
       .hero {
@@ -851,12 +958,16 @@
         --gutter: 20px;
       }
 
+      .utility-bar {
+        display: none;
+      }
+
       .logo-row {
         padding: 16px 0 12px;
       }
 
       .logo-wrap img {
-        width: min(270px, 74vw);
+        width: min(270px, 70vw);
       }
 
       .hero {
@@ -968,14 +1079,25 @@
     </div>
 
     <div class="logo-row">
-      <div class="container logo-wrap">
-        <a href="#">
+      <div class="container logo-bar">
+        <a class="logo-wrap" href="#">
           <img src="https://thecitymagazineelp.com/wp-content/uploads/2025/08/high-res-the-city-logo-scaled.png" alt="The City Magazine logo">
         </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
 
-    <div class="main-nav-wrap">
+    <div class="main-nav-wrap desktop-nav">
       <div class="container">
         <nav class="main-nav">
           <a class="nav-link active" href="#">Home</a>
@@ -988,6 +1110,23 @@
           <a class="nav-link" href="#">Community</a>
           <a class="nav-link" href="#">Contact</a>
           <a class="nav-link" href="#">Calendar</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="container mobile-menu-inner">
+        <nav class="mobile-nav">
+          <a class="mobile-nav-link active" href="#">Home</a>
+          <a class="mobile-nav-link" href="#">Food, Drink, &amp; Travel</a>
+          <a class="mobile-nav-link" href="#">Arts &amp; Entertainment</a>
+          <a class="mobile-nav-link" href="#">Style &amp; Beauty</a>
+          <a class="mobile-nav-link" href="#">Health &amp; Wellness</a>
+          <a class="mobile-nav-link" href="#">Best of The City 2025</a>
+          <a class="mobile-nav-link" href="#">The City Scene</a>
+          <a class="mobile-nav-link" href="#">Community</a>
+          <a class="mobile-nav-link" href="#">Contact</a>
+          <a class="mobile-nav-link" href="#">Calendar</a>
         </nav>
       </div>
     </div>
@@ -1032,6 +1171,7 @@
             </div>
           </article>
         </div>
+
       </div>
     </section>
 
@@ -1302,5 +1442,19 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+
+      if (!toggle || !menu) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = menu.classList.toggle('is-open');
+        toggle.classList.toggle('is-active', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    })();
+  </script>
 </body>
 </html>
