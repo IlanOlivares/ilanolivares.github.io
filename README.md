@@ -1,1 +1,1307 @@
-# ilanolivares.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The City Magazine | Editorial Homepage Mockup</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --paper: #ffffff;
+      --ink: #111111;
+      --muted: #6b6b6b;
+      --line: #ddd6cc;
+      --accent: #b5121b;
+      --accent-dark: #8f0d15;
+      --soft: #efe9e0;
+      --soft-warm: #ede2d7;
+      --dark: #0e0e0e;
+      --max: 1320px;
+      --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --shadow: 0 12px 28px rgba(0,0,0,.06);
+      --shadow-soft: 0 8px 20px rgba(0,0,0,.04);
+      --gutter: 40px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    img,
+    iframe {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    iframe {
+      border: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - var(--gutter)), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: var(--dark);
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+    }
+
+    .utility-bar {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+    }
+
+    .utility-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      min-height: 38px;
+      flex-wrap: wrap;
+      padding: 4px 0;
+    }
+
+    .utility-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .utility-links a {
+      opacity: .86;
+      transition: opacity .2s ease;
+    }
+
+    .utility-links a:hover {
+      opacity: 1;
+    }
+
+    .logo-row {
+      padding: 18px 0 14px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-wrap img {
+      width: min(340px, 72vw);
+      height: auto;
+      object-fit: contain;
+    }
+
+    .main-nav-wrap {
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px 20px;
+      flex-wrap: wrap;
+      min-height: 52px;
+      padding: 10px 0;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-link {
+      opacity: .92;
+      transition: color .2s ease, opacity .2s ease;
+      white-space: nowrap;
+      position: relative;
+      font-weight: 700;
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+      color: #fff;
+    }
+
+    .nav-link.active {
+      color: #fff;
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .hero {
+      padding: 34px 0 26px;
+      background: linear-gradient(to bottom, #111111 0%, #111111 62%, var(--bg) 62%, var(--bg) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-main {
+      background: #000;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      min-height: 720px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main img {
+      height: 100%;
+      object-fit: cover;
+      opacity: .88;
+      transition: transform .4s ease;
+    }
+
+    .hero-main:hover img {
+      transform: scale(1.02);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.72) 8%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.1) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #f1c9c9;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      margin: 0 0 14px;
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 74px);
+      line-height: .95;
+      letter-spacing: -.03em;
+      max-width: 9ch;
+    }
+
+    .hero-summary {
+      margin: 0;
+      font-size: 16px;
+      color: rgba(255,255,255,.88);
+      max-width: 48ch;
+    }
+
+    .hero-side {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    .issue-card,
+    .mini-feature,
+    .story-card,
+    .list-card,
+    .sponsor-box,
+    .category-block {
+      min-width: 0;
+    }
+
+    .issue-card,
+    .mini-feature {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .issue-card img {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .issue-card-body {
+      padding: 22px;
+    }
+
+    .issue-kicker {
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .issue-title {
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1.02;
+    }
+
+    .issue-text {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .mini-feature {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--soft) 0%, #f5efe6 100%);
+    }
+
+    .mini-feature img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mini-feature-body {
+      padding: 18px;
+    }
+
+    .mini-feature h3 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1.05;
+    }
+
+    .mini-feature p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 34px;
+      letter-spacing: -.02em;
+    }
+
+    .section-link {
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .editors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .story-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-soft);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(0,0,0,.08);
+    }
+
+    .story-card img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+
+    .story-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .story-card-body {
+      padding: 18px;
+    }
+
+    .story-meta {
+      margin-bottom: 10px;
+      font-size: 11px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .story-card h3 {
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: 27px;
+      line-height: 1.06;
+      letter-spacing: -.02em;
+    }
+
+    .story-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .video-ad-section {
+      padding: 10px 0 18px;
+    }
+
+    .video-ad-shell {
+      background: #121212;
+      color: #fff;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .video-ad-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .video-ad-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,.2);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.74);
+    }
+
+    .video-ad-header h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 40px;
+      line-height: .98;
+      letter-spacing: -.03em;
+    }
+
+    .video-ad-copy {
+      max-width: 54ch;
+      color: rgba(255,255,255,.78);
+      font-size: 15px;
+    }
+
+    .video-ad-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-ad-frame iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-ad-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 14px;
+      color: rgba(255,255,255,.68);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .latest-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap: 28px;
+    }
+
+    .latest-main {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .latest-sidebar {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+      min-width: 0;
+    }
+
+    .list-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .list-card h4 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .list-story {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .list-story:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .list-story-title {
+      margin: 0 0 6px;
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1.08;
+    }
+
+    .list-story-meta {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .sponsor-box {
+      background: linear-gradient(180deg, var(--soft-warm) 0%, #e8dbce 100%);
+      border: 1px solid #d8c3af;
+      padding: 26px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .sponsor-box h4 {
+      margin: 0 0 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--accent);
+    }
+
+    .sponsor-box h3 {
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1.02;
+    }
+
+    .sponsor-box p {
+      margin: 0 0 18px;
+      color: #5a5148;
+    }
+
+    .ad-band {
+      margin: 16px 0 14px;
+      background: #181818;
+      color: #fff;
+    }
+
+    .ad-band-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr);
+      gap: 20px;
+      align-items: center;
+      min-height: 250px;
+    }
+
+    .ad-band-copy {
+      padding: 44px 0;
+      min-width: 0;
+    }
+
+    .ad-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,.24);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+    }
+
+    .ad-band h2 {
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: 42px;
+      line-height: .98;
+      letter-spacing: -.03em;
+    }
+
+    .ad-band p {
+      margin: 0 0 18px;
+      max-width: 48ch;
+      color: rgba(255,255,255,.8);
+    }
+
+    .ad-band-visual {
+      min-height: 250px;
+      background:
+        linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.35)),
+        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .category-block {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .category-block-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .category-block-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 30px;
+    }
+
+    .category-feature {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: start;
+    }
+
+    .category-feature img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .category-feature h3 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1.06;
+    }
+
+    .category-feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .newsletter {
+      padding: 54px 0 64px;
+    }
+
+    .newsletter-wrap {
+      background: #111111;
+      color: #fff;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+    }
+
+    .newsletter h2 {
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: 40px;
+      line-height: 1;
+    }
+
+    .newsletter p {
+      margin: 0;
+      color: rgba(255,255,255,.74);
+      max-width: 56ch;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      min-width: 0;
+    }
+
+    .newsletter-form input {
+      min-width: 260px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      padding: 0 14px;
+      font-size: 15px;
+    }
+
+    .site-footer {
+      background: #0c0c0c;
+      color: rgba(255,255,255,.78);
+      padding: 28px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo img {
+      width: 180px;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: .95;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .footer-bottom {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 14px;
+    }
+
+    @media (max-width: 1180px) {
+      .hero-grid,
+      .latest-layout,
+      .ad-band-inner,
+      .split-section,
+      .newsletter-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .latest-main,
+      .editors-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .newsletter-form {
+        justify-content: flex-start;
+      }
+
+      .ad-band-copy {
+        padding: 32px 0 0;
+      }
+
+      .ad-band-visual {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --gutter: 28px;
+      }
+
+      .utility-inner {
+        justify-content: center;
+      }
+
+      .main-nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 12px 0;
+        scrollbar-width: thin;
+      }
+
+      .main-nav::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .main-nav::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,.18);
+      }
+
+      .hero {
+        background: linear-gradient(to bottom, #111111 0%, #111111 45%, var(--bg) 45%, var(--bg) 100%);
+      }
+
+      .hero-main {
+        min-height: 580px;
+      }
+
+      .video-ad-header,
+      .section-header {
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --gutter: 20px;
+      }
+
+      .logo-row {
+        padding: 16px 0 12px;
+      }
+
+      .logo-wrap img {
+        width: min(270px, 74vw);
+      }
+
+      .hero {
+        padding: 22px 0 20px;
+        background: linear-gradient(to bottom, #111111 0%, #111111 36%, var(--bg) 36%, var(--bg) 100%);
+      }
+
+      .hero-grid,
+      .hero-side,
+      .editors-grid,
+      .latest-main,
+      .split-section,
+      .category-feature,
+      .mini-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        grid-template-rows: auto;
+      }
+
+      .hero-main {
+        min-height: 460px;
+      }
+
+      .hero-overlay {
+        padding: 22px;
+      }
+
+      .hero-title {
+        font-size: clamp(34px, 11vw, 52px);
+        max-width: 10ch;
+      }
+
+      .hero-summary,
+      .story-card p,
+      .issue-text,
+      .video-ad-copy,
+      .newsletter p {
+        font-size: 14px;
+      }
+
+      .section {
+        padding: 28px 0;
+      }
+
+      .section-title,
+      .video-ad-header h2,
+      .ad-band h2,
+      .newsletter h2 {
+        font-size: 30px;
+        line-height: 1;
+      }
+
+      .issue-title,
+      .sponsor-box h3,
+      .category-block-title {
+        font-size: 28px;
+      }
+
+      .story-card h3,
+      .list-story-title,
+      .category-feature h3,
+      .mini-feature h3 {
+        font-size: 24px;
+      }
+
+      .video-ad-shell,
+      .newsletter-wrap {
+        padding: 20px;
+      }
+
+      .newsletter-form {
+        width: 100%;
+      }
+
+      .newsletter-form input,
+      .newsletter-form .button {
+        width: 100%;
+        min-width: 100%;
+        text-align: center;
+      }
+
+      .footer-top {
+        align-items: flex-start;
+      }
+
+      .footer-nav {
+        gap: 12px 16px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="utility-bar">
+      <div class="container utility-inner">
+        <div class="utility-links">
+          <a href="#">Current Issue</a>
+          <a href="#">Advertise</a>
+        </div>
+        <div class="utility-links">
+          <a href="#">Newsletter</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-row">
+      <div class="container logo-wrap">
+        <a href="#">
+          <img src="https://thecitymagazineelp.com/wp-content/uploads/2025/08/high-res-the-city-logo-scaled.png" alt="The City Magazine logo">
+        </a>
+      </div>
+    </div>
+
+    <div class="main-nav-wrap">
+      <div class="container">
+        <nav class="main-nav">
+          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link" href="#">Food, Drink, &amp; Travel</a>
+          <a class="nav-link" href="#">Arts &amp; Entertainment</a>
+          <a class="nav-link" href="#">Style &amp; Beauty</a>
+          <a class="nav-link" href="#">Health &amp; Wellness</a>
+          <a class="nav-link" href="#">Best of The City 2025</a>
+          <a class="nav-link" href="#">The City Scene</a>
+          <a class="nav-link" href="#">Community</a>
+          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#">Calendar</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <article class="hero-main">
+          <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1600&q=80" alt="Featured cover story">
+          <div class="hero-overlay">
+            <div>
+              <span class="eyebrow">Cover Story • March 2026</span>
+              <h1 class="hero-title">The New Faces of El Paso</h1>
+              <p class="hero-summary">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere sapien nec varius faucibus, vitae elementum velit leo non ipsum.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <div class="hero-side">
+          <article class="issue-card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Current issue cover">
+            <div class="issue-card-body">
+              <div class="issue-kicker">Best of The City 2025</div>
+              <h2 class="issue-title">The Annual Issue</h2>
+              <p class="issue-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet tortor sed interdum gravida.
+              </p>
+              <a class="button" href="#">Explore the Issue</a>
+            </div>
+          </article>
+
+          <article class="mini-feature">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80" alt="Calendar feature">
+            <div class="mini-feature-body">
+              <div class="issue-kicker">Calendar</div>
+              <h3>What to Do This Weekend</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat justo non sapien lacinia.</p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Editor’s Picks</h2>
+          <a class="section-link" href="#">See all stories</a>
+        </div>
+
+        <div class="editors-grid">
+          <article class="story-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Feature story 1">
+            <div class="story-card-body">
+              <div class="story-meta">Arts &amp; Entertainment</div>
+              <h3>How Local Creatives Are Shaping the City</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at fermentum magna, in pharetra mauris.</p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80" alt="Feature story 2">
+            <div class="story-card-body">
+              <div class="story-meta">The City Scene</div>
+              <h3>Spring’s Most Anticipated Nights Out</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper dui nec tincidunt imperdiet.</p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Feature story 3">
+            <div class="story-card-body">
+              <div class="story-meta">Food, Drink, &amp; Travel</div>
+              <h3>The Tables Everyone Wants Right Now</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras viverra purus sit amet neque bibendum.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-ad-section">
+      <div class="container">
+        <div class="video-ad-shell">
+          <div class="video-ad-header">
+            <div>
+              <div class="video-ad-label">Sponsored Video</div>
+              <h2>Featured Partner Video</h2>
+            </div>
+            <div class="video-ad-copy">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique sem nec tincidunt aliquam, sed volutpat velit eu pretium semper.
+            </div>
+          </div>
+
+          <div class="video-ad-frame">
+            <iframe
+              src="https://www.youtube.com/embed/VQNLgUKxM6Y?rel=0"
+              title="Featured Partner Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-ad-caption">
+            <span>Presented by Brand Partner</span>
+            <span>YouTube Video Placement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Latest Stories</h2>
+          <a class="section-link" href="#">More recent coverage</a>
+        </div>
+
+        <div class="latest-layout">
+          <div class="latest-main">
+            <article class="story-card">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Latest story 1">
+              <div class="story-card-body">
+                <div class="story-meta">Community</div>
+                <h3>Neighborhoods to Watch This Year</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere commodo sapien.</p>
+              </div>
+            </article>
+
+            <article class="story-card">
+              <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80" alt="Latest story 2">
+              <div class="story-card-body">
+                <div class="story-meta">Health &amp; Wellness</div>
+                <h3>Inside a Story of Hope and Care</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt diam sit amet augue viverra.</p>
+              </div>
+            </article>
+
+            <article class="story-card">
+              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80" alt="Latest story 3">
+              <div class="story-card-body">
+                <div class="story-meta">Style &amp; Beauty</div>
+                <h3>The Looks Defining the Season</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec gravida lectus sit amet lorem malesuada.</p>
+              </div>
+            </article>
+
+            <article class="story-card">
+              <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Latest story 4">
+              <div class="story-card-body">
+                <div class="story-meta">Food, Drink, &amp; Travel</div>
+                <h3>Beautiful Places Across the Borderland</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vulputate libero non interdum luctus.</p>
+              </div>
+            </article>
+          </div>
+
+          <aside class="latest-sidebar">
+            <div class="list-card">
+              <h4>Trending Now</h4>
+
+              <div class="list-story">
+                <h3 class="list-story-title">5 Restaurants Everyone Is Talking About</h3>
+                <div class="list-story-meta">Food, Drink, &amp; Travel • 4 min read</div>
+              </div>
+
+              <div class="list-story">
+                <h3 class="list-story-title">The Photo Essay Defining This Month</h3>
+                <div class="list-story-meta">The City Scene • 6 min read</div>
+              </div>
+
+              <div class="list-story">
+                <h3 class="list-story-title">A Local Event Calendar Worth Bookmarking</h3>
+                <div class="list-story-meta">Calendar • Guide</div>
+              </div>
+
+              <div class="list-story">
+                <h3 class="list-story-title">A Better Look at the Stories Shaping El Paso</h3>
+                <div class="list-story-meta">Community • 5 min read</div>
+              </div>
+            </div>
+
+            <div class="sponsor-box">
+              <h4>Partner Spotlight</h4>
+              <h3>Advertiser Feature With Better Presence</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra velit sit amet ullamcorper viverra.
+              </p>
+              <a class="button" href="#">Learn More</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ad-band">
+      <div class="container ad-band-inner">
+        <div class="ad-band-copy">
+          <div class="ad-label">Sponsored</div>
+          <h2>Your Brand, Beautifully Placed</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique sem nec tincidunt aliquam, sed volutpat velit eu pretium semper.
+          </p>
+          <a class="button" href="#">Advertise With Us</a>
+        </div>
+        <div class="ad-band-visual"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split-section">
+        <div class="category-block">
+          <div class="category-block-header">
+            <h2 class="category-block-title">Arts &amp; Entertainment</h2>
+            <a class="section-link" href="#">View more</a>
+          </div>
+
+          <article class="category-feature">
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80" alt="Arts and entertainment feature">
+            <div>
+              <h3>The Guide to This Month’s Best Events</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer volutpat mauris non leo scelerisque.
+              </p>
+            </div>
+          </article>
+
+          <div class="list-story">
+            <h3 class="list-story-title">Concerts, openings, and experiences worth planning for</h3>
+            <div class="list-story-meta">Weekend Guide</div>
+          </div>
+          <div class="list-story">
+            <h3 class="list-story-title">Where to go for a polished night out in El Paso</h3>
+            <div class="list-story-meta">Culture</div>
+          </div>
+        </div>
+
+        <div class="category-block">
+          <div class="category-block-header">
+            <h2 class="category-block-title">Community</h2>
+            <a class="section-link" href="#">View more</a>
+          </div>
+
+          <article class="category-feature">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="Community feature">
+            <div>
+              <h3>Stories That Feel Rooted in El Paso</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur risus ac luctus aliquam.
+              </p>
+            </div>
+          </article>
+
+          <div class="list-story">
+            <h3 class="list-story-title">Profiles, local impact, and people worth knowing</h3>
+            <div class="list-story-meta">Featured Story</div>
+          </div>
+          <div class="list-story">
+            <h3 class="list-story-title">Neighborhoods, initiatives, and citywide inspiration</h3>
+            <div class="list-story-meta">Local Life</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter-wrap">
+          <div>
+            <h2>Stay in the know.</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor turpis ac viverra fermentum, enim mauris faucibus justo.
+            </p>
+          </div>
+
+          <form class="newsletter-form">
+            <input type="email" placeholder="Email address" />
+            <a class="button" href="#">Subscribe</a>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="https://thecitymagazineelp.com/wp-content/uploads/2025/08/high-res-the-city-logo-scaled.png" alt="The City Magazine logo">
+        </div>
+        <nav class="footer-nav">
+          <a href="#">Home</a>
+          <a href="#">Food, Drink, &amp; Travel</a>
+          <a href="#">Arts &amp; Entertainment</a>
+          <a href="#">Style &amp; Beauty</a>
+          <a href="#">Health &amp; Wellness</a>
+          <a href="#">Best of The City 2025</a>
+          <a href="#">The City Scene</a>
+          <a href="#">Community</a>
+          <a href="#">Contact</a>
+          <a href="#">Calendar</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 The City Magazine. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
